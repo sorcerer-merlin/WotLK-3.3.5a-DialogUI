@@ -1378,7 +1378,7 @@ function DQuestFrame_OnKeyDown()
         -- Accept quest on the detail panel
         if DQuestFrameDetailPanel and DQuestFrameDetailPanel:IsVisible() then
             if DQuestFrameAcceptButton and DQuestFrameAcceptButton:IsEnabled() then
-                AcceptQuest();
+                DQuestDetailAcceptButton_OnClick();
                 PlaySound("igQuestListComplete");
                 return;
             end
@@ -1894,6 +1894,13 @@ function DQuestFrameDetailPanel_OnShow()
     DTextAlphaDependentFrame:SetAlpha(0);
     DQuestFrameAcceptButton:Disable();
 
+    -- Auto-accept quests are already in the log; there is nothing to decline
+    if ( QuestGetAutoAccept() ) then
+        DQuestFrameDeclineButton:Hide();
+    else
+        DQuestFrameDeclineButton:Show();
+    end
+
     DQuestFrameDetailPanel.fading = 1;
     DQuestFrameDetailPanel.fadingProgress = 0;
     DQuestDescription:SetAlphaGradient(0, QUEST_DESCRIPTION_GRADIENT_LENGTH);
@@ -1923,7 +1930,12 @@ function DQuestFrameDetailPanel_OnUpdate(elapsed)
 end
 
 function DQuestDetailAcceptButton_OnClick()
-    AcceptQuest();
+    -- The server already added auto-accept quests; accepting again errors
+    if ( QuestGetAutoAccept() ) then
+        HideUIPanel(DQuestFrame);
+    else
+        AcceptQuest();
+    end
 end
 
 function DQuestDetailDeclineButton_OnClick()
