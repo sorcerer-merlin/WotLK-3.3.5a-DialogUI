@@ -167,6 +167,9 @@ function DGossipFrame_OnLoad()
     this:SetMovable(true);
     this:EnableMouse(true);
 
+    -- Close on Escape like the stock GossipFrame (keeps the saved position)
+    tinsert(UISpecialFrames, this:GetName());
+
     if not DGossipKeyFrame then
         CreateFrame("Frame", "DGossipKeyFrame", UIParent)
         DGossipKeyFrame:SetScript("OnKeyDown", DGossipFrame_OnKeyDown)
