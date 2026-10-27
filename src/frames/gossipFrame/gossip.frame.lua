@@ -750,7 +750,7 @@ function SetGossipButtonIcon(button, iconType, text)
         ["mage"] = "mageGossipIcon",
         ["warlock"] = "warlockGossipIcon",
         ["druid"] = "druidGossipIcon",
-        ["deathKnight"] = "deathKnightGossipIcon",
+        ["deathknight"] = "deathknightGossipIcon",
         
         -- Professions
         ["alchemy"] = "alchemyGossipIcon",
@@ -943,7 +943,7 @@ function DetermineGossipIconTypeByText(optionText)
         ["маг"] = "mage",
         ["чернокнижник"] = "warlock",
         ["друид"] = "druid",
-        ["рыцарь смерти"] = "deathKnight",
+        ["рыцарь смерти"] = "deathknight",
         -- English
         ["warrior"] = "warrior",
         ["paladin"] = "paladin",
@@ -954,7 +954,7 @@ function DetermineGossipIconTypeByText(optionText)
         ["mage"] = "mage",
         ["warlock"] = "warlock",
         ["druid"] = "druid",
-        ["death knight"] = "deathKnight",
+        ["death knight"] = "deathknight",
     }
     
     for keyword, iconType in pairs(classTrainers) do
@@ -1435,8 +1435,8 @@ function DialogUI_GetGossipIconPath(iconType, gossipText)
         ["mage"] = "mageGossipIcon",
         ["warlock"] = "warlockGossipIcon",
         ["druid"] = "druidGossipIcon",
-        ["death knight"] = "deathKnightGossipIcon",
-        ["deathKnight"] = "deathKnightGossipIcon",
+        ["death knight"] = "deathknightGossipIcon",
+        ["deathknight"] = "deathknightGossipIcon",
         
         -- Special
         ["professionTrainer"] = "professionTrainerGossipIcon",
